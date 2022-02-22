@@ -1,8 +1,21 @@
-<h2>{{user.name | uppercase}}</h2>
-<div><span>id: </span>{{user.id}}</div>
-<div><span>name: </span>{{user.name}}</div>
 
-<div>
-    <label for="name">User's name: </label>
-    <input id="name" [(ngModel)]="user.name" placeholder="name">
+<h2>USERS</h2>
+<ul class="users-wrapper">
+    <li [class.selected]="user === selectedUser" *ngFor="let user of users">
+        <button type="button" (click)="onSelect(user)">{{user.name}}</button>
+        <div>
+            <label for="name">User's name: </label>
+            <input id="name" [(ngModel)]="user.name" placeholder="name">
+        </div> 
+    </li>
+</ul>
+
+<div class="selected-user-wrapper" *ngIf="selectedUser">
+    <h2>{{selectedUser.name | uppercase}} Details</h2>
+    <div>id: {{selectedUser.id}}</div>
+    <div>email: {{selectedUser.email}}</div>
+    <div>
+        <label for="user-name">User: </label>
+        <input id="user-name" [(ngModel)]="selectedUser.name" placeholder="name">
+    </div>
 </div>
