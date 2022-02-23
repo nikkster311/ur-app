@@ -10,12 +10,4 @@
     </li>
 </ul>
 
-<div class="selected-user-wrapper" *ngIf="selectedUser">
-    <h2>{{selectedUser.name | uppercase}} Details</h2>
-    <div>id: {{selectedUser.id}}</div>
-    <div>email: {{selectedUser.email}}</div>
-    <div>
-        <label for="user-name">User: </label>
-        <input id="user-name" [(ngModel)]="selectedUser.name" placeholder="name">
-    </div>
-</div>
+<app-user-detail [user]="selectedUser"></app-user-detail>

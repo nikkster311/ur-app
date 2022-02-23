@@ -1,0 +1,10 @@
+
+<div class="selected-user-wrapper" *ngIf="user">
+    <h2>{{user.name | uppercase}} Details</h2>
+    <div>id: {{user.id}}</div>
+    <div>email: {{user.email}}</div>
+    <div>
+        <label for="user-name">User: </label>
+        <input id="user-name" [(ngModel)]="user.name" placeholder="name">
+    </div>
+</div>
