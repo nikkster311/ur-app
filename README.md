@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 
 
-### Angular App that displays local user data and gets user data from a RestAPI
+# Angular App that displays local user data and gets user data from a RestAPI
 
 In this Angular project, **my goal was to get a grasp on Angular and use it to create reusable components as well as successfully display data after sending a get request**. This was my first time using Typescript and Angular, but I have used Vue and React before.
 
