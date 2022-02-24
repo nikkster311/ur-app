@@ -1,0 +1,29 @@
+<h2>View <a href='http://jsonplaceholder.typicode.com/users'>users</a> from the <a href="http://jsonplaceholder.typicode.com">JSON Placeholder RestAPI</a></h2>
+<button (click)="getAllJsonUsers()">get all json users</button>
+
+<div class="form-wrapper">
+    <form [formGroup]="getIdForm" (ngSubmit)="onSubmit()" (submit)="onSubmit()">
+        <label for="id">Search by id (1-10): </label>
+        <input id="id" formControlName="id">
+        <button type="submit" >view</button>
+    </form> 
+
+    <app-user-detail [user]="selectedUser"></app-user-detail>
+</div>
+
+<ul class="users-wrapper">
+    <div *ngFor="let user of jsonUsers | async">
+    <!-- {{ user | json }} -->
+        <li [class.selected]="user === selectedUser">
+            <button type="button" (click)="onSelect(user)">{{user.name}}</button>
+            <div><span>Location: </span>{{user.address.city}}</div>
+            <div><span>Company: </span>{{user.company.name}}</div>
+            <div>
+                <label for="name">User's name: </label>
+                <input id="name" [(ngModel)]="user.name" placeholder="name">
+            </div> 
+        </li>
+    </div>
+</ul>
+
+

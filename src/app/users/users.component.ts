@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { User }  from '../user';
-import { USERS } from '../sample-user-data';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-users',
@@ -10,9 +10,9 @@ import { USERS } from '../sample-user-data';
 })
 export class UsersComponent implements OnInit {
 
-  users = USERS;
+  users: User[] = [];
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   // assigns clicked user from template to component's selectedUSer
   selectedUser?: User;
@@ -21,6 +21,11 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
+  getUsers(): void {
+    this.userService.getUsers()
+    .subscribe(users => this.users = users);
+  }
 }
